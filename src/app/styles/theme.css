@@ -11,6 +11,9 @@
 
   --line-color: #e1e3e7;
   --highlight-line-color: #000000;
+
+  --primary-button-background: #000000;
+  --outline-button-color: #000000;
 }
 
 .page.dark {
@@ -26,4 +29,7 @@
 
   --line-color: #383838;
   --highlight-line-color: #555555;
+
+  --primary-button-background: #555555;
+  --outline-button-color: #555555;
 }
