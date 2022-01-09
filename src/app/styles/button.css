@@ -4,6 +4,7 @@
   padding: 8px 25px;
   background: var(--primary-button-background);
   border: 2px solid var(--outline-button-color);
+  
 }
 
 .button.large {

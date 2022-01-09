@@ -60,6 +60,7 @@ export default defineComponent({
   methods: {
     ...mapActions({
       login: 'auth/login/login',
+      pushMessage: 'notification/pushMessage',
     }),
     async onClickLogin() {
       try {
@@ -68,8 +69,14 @@ export default defineComponent({
           password: this.password,
         });
         console.log(response);
+        this.pushMessage({
+          content: `欢迎 ${response.data.data.name}`,
+        });
       } catch (error) {
-        console.log(error);
+        console.log('error:', error.response);
+        this.pushMessage({
+          content: error.response.data.message,
+        });
       }
     },
   },
