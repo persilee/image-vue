@@ -1,12 +1,8 @@
 <template>
   <div class="field">
-    <input
-      :type="type"
-      class="input text"
-      :value="modelValue"
-      :placeholder="placeholder"
-      @input="$emit('update:modelValue', $event.target.value)"
-    />
+    <button :class="['button', size]" @click="$emit('click')">
+      {{ text }}
+    </button>
   </div>
 </template>
 
@@ -14,30 +10,25 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'TextField',
+  name: 'ButtonField',
 
   /**
    * 属性
    */
   props: {
-    modelValue: {
+    text: {
       type: String,
     },
 
-    type: {
-      type: String,
-      default: 'text',
-    },
-
-    placeholder: {
+    size: {
       type: String,
     },
   },
 
   /**
-   * 事件
+   *事件
    */
-  emits: ['update:modelValue'],
+  emits: ['click'],
 
   /**
    * 数据

@@ -6,12 +6,32 @@
 
 <script>
 import AppLayout from '@/app/layout/app-layout.vue';
+import { mapActions, mapMutations } from 'vuex';
+import { getStorage } from './app.service';
 
 export default {
   data() {
     return {
       layout: 'AppLayout',
     };
+  },
+
+  created() {
+    const token = getStorage('nid');
+    if (token) {
+      this.setToken(token);
+      this.configApiHttpClientAuthHeader(token);
+    }
+  },
+
+  methods: {
+    ...mapMutations({
+      setToken: 'auth/setToken',
+    }),
+
+    ...mapActions({
+      configApiHttpClientAuthHeader: 'auth/configApiHttpClientAuthHeader',
+    }),
   },
 
   components: {
